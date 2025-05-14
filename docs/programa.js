@@ -26,9 +26,13 @@ async function cargarpuntos (){
 
     //Coinvertir el contenido a json: objeto js
     var datos= await miArchivo.json();
-    for(let i =0; i<6;i++){
-        console.log(datos["features"][i]);
-        
+    //obtener el arreglo de la llave features que es un conjunto de objetos tipo feature
+    let listaFeatures= datos["features"];
+   
+  for(let i =0; i<6;i++){
+  let misCoordenadas= listaFeatures[i]["geometry"]["coordinates"];
+  var miMarcador= L.marker(misCoordenadas);
+  miMarcador.addTo(map);
 
     }
     
