@@ -26,8 +26,12 @@ async function cargarpuntos (){
 
     //Coinvertir el contenido a json: objeto js
     var datos= await miArchivo.json();
-    console.log(datos);
-    console.log(datos["features"][4]);
+    for(let i =0; i<6;i++){
+        console.log(datos["features"][i]);
+        
+
+    }
+    
 }
 
 cargarpuntos();
