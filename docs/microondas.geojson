@@ -1,153 +1,119 @@
-<script>
-    // Crear el mapa centrado en una ubicación
-    const map = L.map('map').setView([4.619306441225001, -74.08660375394365], 13);
-
-    // Cargar la capa base del mapa de OpenStreetMap
-    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(map);
-
-    // Definir los datos de los puntos (GeoJSON)
-    const data = {
-        "type": "FeatureCollection",
-        "features": [
-            {
-                "type": "Feature",
-                "geometry": {
-                    "type": "Point",
-                    "coordinates": [4.619306441225001, -74.08660375394365]
-                },
-                "properties": {
-                    "Modelo": "HM HACEB 0,7 BL",
-                    "Marca": "HACEB",
-                    "Alto": 24.3,
-                    "Ancho": 44.6,
-                    "Profundidad": 36,
-                    "Capacidad": 20,
-                    "Potencia": 1100,
-                    "Voltaje": 120,
-                    "PrecioDescuento": 299900,
-                    "Precio": 381900
-                }
-            },
-            {
-                "type": "Feature",
-                "geometry": {
-                    "type": "Point",
-                    "coordinates": [4.644336852054518, -74.07481866062632]
-                },
-                "properties": {
-                    "Modelo": "RMD-CUCINA20-B",
-                    "Marca": "Recco",
-                    "Alto": 25.8,
-                    "Ancho": 44,
-                    "Profundidad": 33.4,
-                    "Capacidad": 20,
-                    "Potencia": 1050,
-                    "Voltaje": 110,
-                    "PrecioDescuento": 229900,
-                    "Precio": 349900
-                }
-            },
-            {
-                "type": "Feature",
-                "geometry": {
-                    "type": "Point",
-                    "coordinates": [4.612435832918613, -74.09525083313537]
-                },
-                "properties": {
-                    "Modelo": "KALLEY 0.7 K-MW07N",
-                    "Marca": "KALLEY",
-                    "Alto": 25.9,
-                    "Ancho": 44,
-                    "Profundidad": 32.9,
-                    "Capacidad": 20,
-                    "Potencia": 700,
-                    "Voltaje": 110,
-                    "PrecioDescuento": 269900,
-                    "Precio": 399900
-                }
-            },
-            {
-                "type": "Feature",
-                "geometry": {
-                    "type": "Point",
-                    "coordinates": [4.656630875698645, -74.1056041331354]
-                },
-                "properties": {
-                    "Modelo": "ELECTROLUX 0.7 EMDO20",
-                    "Marca": "ELECTROLUX",
-                    "Alto": 26.2,
-                    "Ancho": 45.2,
-                    "Profundidad": 34.4,
-                    "Capacidad": 20,
-                    "Potencia": "N/E",
-                    "Voltaje": 110,
-                    "PrecioDescuento": 309900,
-                    "Precio": 599900
-                }
-            },
-            {
-                "type": "Feature",
-                "geometry": {
-                    "type": "Point",
-                    "coordinates": [4.6415961727500505, -74.16294607342769]
-                },
-                "properties": {
-                    "Modelo": "KALLEY 0.7 K-MW07N",
-                    "Marca": "KALLEY",
-                    "Alto": 25.9,
-                    "Ancho": 44,
-                    "Profundidad": 32.9,
-                    "Capacidad": 20,
-                    "Potencia": "700",
-                    "Voltaje": 110,
-                    "PrecioDescuento": 269900,
-                    "Precio": 399900
-                }
-            },
-            {
-                "type": "Feature",
-                "geometry": {
-                    "type": "Point",
-                    "coordinates": [4.686939430139815, -74.12316817800262]
-                },
-                "properties": {
-                    "Modelo": "N/E",
-                    "Marca": "Challenger",
-                    "Alto": 29.5,
-                    "Ancho": 53.5,
-                    "Profundidad": 41,
-                    "Capacidad": 20,
-                    "Potencia": 1350,
-                    "Voltaje": 110,
-                    "PrecioDescuento": "N/E",
-                    "Precio": 689900
-                }
-            }
-        ]
-    };
-
-    // Iterar sobre cada "feature" y agregarlo al mapa
-    data.features.forEach(function(feature) {
-        const coordinates = feature.geometry.coordinates;
-        const properties = feature.properties;
-
-        // Crear el contenido del popup dentro del ciclo
-        const popupContent = `
-            <strong>Modelo:</strong> ${properties.Modelo}<br>
-            <strong>Marca:</strong> ${properties.Marca}<br>
-            <strong>Alto:</strong> ${properties.Alto} cm<br>
-            <strong>Ancho:</strong> ${properties.Ancho} cm<br>
-            <strong>Profundidad:</strong> ${properties.Profundidad} cm<br>
-            <strong>Capacidad:</strong> ${properties.Capacidad} L<br>
-            <strong>Potencia:</strong> ${properties.Potencia} W<br>
-            <strong>Voltaje:</strong> ${properties.Voltaje} V<br>
-            <strong>Precio:</strong> $${properties.Precio.toLocaleString()}<br>
-            <strong>Precio con descuento:</strong> $${properties.PrecioDescuento.toLocaleString()}
-        `;
-
-        // Crear un marcador en las coordenadas y agregar el pop-up
-        L.marker([coordinates[0], coordinates[1]])
-            .addTo(map)
-            .bindPopup(popupContent);  // Aquí se vincula el pop-up dentro del ciclo
-    });
-</script>
+{
+  "type": "FeatureCollection", 
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [4.619306441225001, -74.08660375394365]
+      },
+      "properties": {
+        "Modelo": "HM HACEB 0,7 BL",
+        "Marca": "HACEB",
+        "Alto": 24.3,
+        "Ancho": 44.6,
+        "Profundidad": 36,
+        "Capacidad": 20,
+        "Potencia": 1100,
+        "Voltaje": 120,
+        "PrecioDescuento": 299900,
+        "Precio": 381900
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [4.644336852054518, -74.07481866062632]
+      },
+      "properties": {
+        "Modelo": "RMD-CUCINA20-B",
+        "Marca": "Recco",
+        "Alto": 25.8,
+        "Ancho": 44,
+        "Profundidad": 33.4,
+        "Capacidad": 20,
+        "Potencia": 1050,
+        "Voltaje": 110,
+        "PrecioDescuento": 229900,
+        "Precio": 349900
+      }  
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [4.612435832918613, -74.09525083313537]
+      },
+      "properties": {
+        "Modelo": "KALLEY 0.7 K-MW07N",
+        "Marca": "KALLEY",
+        "Alto": 25.9,
+        "Ancho": 44,
+        "Profundidad": 32.9,
+        "Capacidad": 20,
+        "Potencia": 700,
+        "Voltaje": 110,
+        "PrecioDescuento": 269900,
+        "Precio": 399900
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [4.656630875698645, -74.1056041331354]
+      },
+      "properties": {
+        "Modelo": "ELECTROLUX 0.7 EMDO20",
+        "Marca": "ELECTROLUX",
+        "Alto": 26.2,
+        "Ancho": 45.2,
+        "Profundidad": 34.4,
+        "Capacidad": 20,
+        "Potencia": "N/E",
+        "Voltaje": 110,
+        "PrecioDescuento": 309900,
+        "Precio": 599900
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [4.6415961727500505, -74.16294607342769]
+      },
+      "properties": {
+        "Modelo": "KALLEY 0.7 K-MW07N",
+        "Marca": "KALLEY",
+        "Alto": 25.9,
+        "Ancho": 44,
+        "Profundidad": 32.9,
+        "Capacidad": 20,
+        "Potencia": 700,
+        "Voltaje": 110,
+        "PrecioDescuento": 269900,
+        "Precio": 399900
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [4.686939430139815, -74.12316817800262]
+      },
+      "properties": {
+        "Modelo": "N/E",
+        "Marca": "Challenger",
+        "Alto": 29.5,
+        "Ancho": 53.5,
+        "Profundidad": 41,
+        "Capacidad": 20,
+        "Potencia": 1350,
+        "Voltaje": 110,
+        "PrecioDescuento": "N/E",
+        "Precio": 689900
+      }
+    }
+  ]
+}
